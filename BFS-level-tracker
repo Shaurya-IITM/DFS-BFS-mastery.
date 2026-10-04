@@ -1,0 +1,19 @@
+def bfs(mat,start=0):
+  size=len(mat)
+  queue=[start]
+  visited={start}
+  level=1
+  while queue:
+    lvl_size=len(queue)
+    current_lvl=[]
+    for _ in range(lvl_size):
+      node=queue.pop(0)
+      current_lvl.append(node)
+      for neighbor in range(size):
+        if mat[node][neighbor]== 1 and neighbor not in visited:
+          queue.append(neighbor)
+          visited.add(neighbor)
+    print(f'level {level}: {current_lvl}')
+    level += 1
+
+bfs([[0,1,1,0],[0,0,0,1],[0,0,0,0],[0,0,1,0]])    
